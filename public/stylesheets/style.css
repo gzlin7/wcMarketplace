@@ -1,0 +1,42 @@
+/* body {
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+}  */
+
+section {
+  list-style-type: none;
+  box-shadow: 0 0 5px #DDDDDD;
+  background-color: white;
+  border: 1px solid #BBBBBB;
+  /* border-radius: 5px; */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.install {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+#intro {
+  /* grid-column: 1 / span 2;
+  grid-row: 1; */
+}
+
+.grid-container {
+  display: grid;
+  /* grid-gap: 10px; */
+  /* padding: 10px; */
+  height: 80vh;
+}
+
+#adapterCode {
+  height: 100%;
+  grid-row: 1;
+}
+
+#info{
+  grid-row: 1;
+}

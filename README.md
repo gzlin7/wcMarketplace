@@ -1,2 +1,1 @@
-# wcMarketplace
-/node_modules
+Adapter sharing site for Wildcard project.

@@ -1,1 +1,2 @@
 # wcMarketplace
+/node_modules

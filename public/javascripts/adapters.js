@@ -22,10 +22,10 @@ $(document).ready(function() {
     $('#adapterName').text(scraper.name);
   });
 
-  $(".install").on("click", function(event) {
-      let url = "chrome-extension://" + extensionId + "/ask.html?aid=" + aid;
+  // $(".install").on("click", function(event) {
+  //     let url = "chrome-extension://" + extensionId + "/ask.html?aid=" + aid;
      
-      // alert("url=" + url);
-      window.open(url);
-  });
+  //     // alert("url=" + url);
+  //     window.open(url);
+  // });
 });

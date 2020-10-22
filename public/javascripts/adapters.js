@@ -1,5 +1,5 @@
 // TODO: retrieve extension id dynamically
-const extensionId = 'aabllonifcnfedcledkelkndnhabgkfo';
+// const extensionId = 'aabllonifcnfedcledkelkndnhabgkfo';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

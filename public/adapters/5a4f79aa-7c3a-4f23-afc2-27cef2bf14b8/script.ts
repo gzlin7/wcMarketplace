@@ -1,6 +1,6 @@
 {
   name: "MIT EECS Course Catalog",
-  contains: "eecs.scripts.mit.edu/eduportal/who_is_teaching_what/F/2020",
+  contains: "https://eecs.scripts.mit.edu/eduportal/who_is_teaching_what/F/2020/",
   attributes: [
     { name: "id", type: "text", hidden: true },
     { name: "number", type: "text" },

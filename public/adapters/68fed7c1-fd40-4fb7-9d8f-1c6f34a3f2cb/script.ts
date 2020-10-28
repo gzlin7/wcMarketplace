@@ -1,6 +1,6 @@
 {
   name: "Hacker News",
-  contains: "news.ycombinator.com/",
+  contains: "https://news.ycombinator.com/",
 //   enabled () {
 //     return urlContains("news.ycombinator.com/") ||
 //           urlContains("news.ycombinator.com/news") ||

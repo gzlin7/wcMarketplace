@@ -5,15 +5,16 @@ const aid = urlParams.get('aid');
 
 window.onload = function() {
   // load info
-  $('#info').load(`adapters/${aid}/info.html`);
+  //$('#info').load(`adapters/${aid}/info.html`);
 
   var editor = ace.edit("adapterEditor"); 
   editor.session.setMode("ace/mode/typescript");
   editor.setReadOnly(true);
 
   // get adapter code
-  $.get(`adapters/${aid}/script.ts`, function(data) {
-    const code = data;
+  $.get(`api/adapters/${aid}`, function(data) {
+    const code = data.code;
+    $('#info').html(data.description);
 
     editor.setValue(code);
     $('#adapterCode').text(code);

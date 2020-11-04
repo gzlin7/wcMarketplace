@@ -1,30 +1,41 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>Wildcard Adapters</title>
-  <meta name="author" content="6.170 Staff">
+  <title>Wildcard Marketplace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <h1>Wildcard Adapters</h1>
+  <div id="app">
+    <h2>Wildcard Marketplace: Wildcard Adapters</h2>
+    <section v-for="adapter in adapters" v-bind:key="adapter.id">
+      <h2><a v-bind:href="'adapter.html?aid=' + adapter.id">{{ adapter.name }}</a></h2>
+      <p>Adapter for {{ adapter.url }}</p>
+    </section>
+  </div>
 
-<section id="5a4f79aa-7c3a-4f23-afc2-27cef2bf14b8">
-  <h2><a href="adapter.html?aid=5a4f79aa-7c3a-4f23-afc2-27cef2bf14b8">MIT EECS Course Catalog</a></h2>
-  <p>Adapter for MIT EECS Education Portal</p>
-</section>
-
-<section id="68fed7c1-fd40-4fb7-9d8f-1c6f34a3f2cb">
-  <h2><a href="adapter.html?aid=68fed7c1-fd40-4fb7-9d8f-1c6f34a3f2cb">Hacker News</a></h2>
-  <p>Adapter for news.ycombinator.com</p>
-</section>
-
-<section>
-  <h2>YouTube</h2>
-  <p>Adapter for YouTube</p>
-</section>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        adapters: []
+      },
+      mounted: function () {
+        this.loadAdapters();
+      },
+      methods: {
+        loadAdapters: function () {
+          axios.get("/api/adapters").then(response => {
+            this.adapters = response.data;
+          });
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

@@ -7,7 +7,8 @@ const cors = require('cors');
 
 // import all the express routes we will be using
 const indexRouter = require('./routes/index');
-// add usersRouter, freetsRouter
+// add other routers
+const adaptersRouter = require('./routes/adapters');
 
 
 const app = express();
@@ -32,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // connect url hierarchies to our routers
 app.use('/', indexRouter);
-// TODO add usersRouter, freetsRouter mapping
+// router mapping
+app.use('/api/adapters', adaptersRouter);
 
 
 module.exports = app;

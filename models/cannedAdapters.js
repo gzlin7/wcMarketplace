@@ -14,8 +14,8 @@ let cannedAdapters = [
       { name: "recitation instructors", type: "text" }
     ],
     scrapePage: () => {
-      return Array.from(document.querySelectorAll("tr[id]")).map(el => {
-        let courseData = el.getElementsByTagName("td")
+      return Array.from(document.querySelectorAll('tr[id]')).map(el => {
+        let courseData = el.getElementsByTagName('td')
         let courseNumber = el.id
         let courseName = courseData[0].innerText
   
@@ -35,15 +35,15 @@ let cannedAdapters = [
     onRowSelected: (row) => {
       row.rowElements.forEach(el => {
         if (el.style) {
-          el.style["background-color"] = '#c9ebff'
+          el.style['background-color'] = '#c9ebff'
         }
       });
-      row.rowElements[0].scrollIntoView({ behavior: "smooth", block: "center" })
+      row.rowElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' })
     },
     onRowUnselected: (row) => {
       row.rowElements.forEach(el => {
         if (el.style) {
-          el.style["background-color"] = ''
+          el.style['background-color'] = ''
         }
       })
     }
@@ -72,28 +72,28 @@ let cannedAdapters = [
       // { name: "comments", type: "numeric" }
     ],
     scrapePage() {
-      return Array.from(document.querySelectorAll("tr.athing")).map(el => {
+      return Array.from(document.querySelectorAll('tr.athing')).map(el => {
         let detailsRow = el.nextElementSibling
         let spacerRow = detailsRow.nextElementSibling
   
         return {
-          id: String(el.getAttribute("id")),
+          id: String(el.getAttribute('id')),
           rowElements: [el, detailsRow, spacerRow],
             // todo: Both of these steps should be handled by the framework...
             // .filter(e => e) // Only include if the element is really there
             // .map(e => (e)), // Convert to HTMLElement type
           dataValues: {
-            rank: el.querySelector("span.rank"),
-            title: el.querySelector("a.storylink"),
-            link: el.querySelector("a.storylink").getAttribute("href"),
+            rank: el.querySelector('span.rank'),
+            title: el.querySelector('a.storylink'),
+            link: el.querySelector('a.storylink').getAttribute('href'),
             // These elements contain text like "162 points";
             // Wildcard takes care of extracting a number automatically.
-            points: detailsRow.querySelector("span.score"),
-            user: detailsRow.querySelector("a.hnuser"),
-          //   comments: extractNumber(Array.from(detailsRow.querySelectorAll("a"))
-          //     .find(e => e.textContent.indexOf("comment") !== -1), 0)
+            points: detailsRow.querySelector('span.score'),
+            user: detailsRow.querySelector('a.hnuser'),
+          //   comments: extractNumber(Array.from(detailsRow.querySelectorAll('a'))
+          //     .find(e => e.textContent.indexOf('comment') !== -1), 0)
           },
-          // annotationContainer: detailsRow.querySelector("td.subtext") as HTMLElement,
+          // annotationContainer: detailsRow.querySelector('td.subtext') as HTMLElement,
           // annotationTemplate: '| <span style="color: #f60;">$annotation</span>'
         }
       })
@@ -101,15 +101,15 @@ let cannedAdapters = [
     onRowSelected: (row) => {
         row.rowElements.forEach(el => {
             if (el.style) {
-                el.style["background-color"] = "#def3ff"
+                el.style['background-color'] = '#def3ff'
             }
         });
-        row.rowElements[0].scrollIntoView({ behavior: "smooth", block: "center" })
+        row.rowElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' })
     },
     onRowUnselected: (row) => {
         row.rowElements.forEach(el => {
             if(el.style) {
-                el.style["background-color"] = ''
+                el.style['background-color'] = ''
             }
         })
     },

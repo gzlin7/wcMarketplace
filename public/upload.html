@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>Upload Wildcard Adapter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/mode-typescript.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="/javascripts/upload.js"></script>
+</head>
+
+<body>
+  <h2 class="header">Upload Wildcard Adapter</h2>
+
+  <div class="container">
+    <div class="w3-row">
+      <div class="w3-col m2">
+        <label for="name">Adapter Name:</label>
+      </div>
+      <div class="w3-col m10">
+        <input type="text" id="name" name="name" value="" readonly />
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-col m2">
+        <label for="url">URL:</label>
+      </div>
+      <div class="w3-col m10">
+        <input type="text" id="url" name="url" readonly>
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-col m2">
+        <label for="code">Adapter Code:</label>
+      </div>
+      <div class="w3-col m10">
+        <textarea id="code" name="code" rows="8" onblur="validate()" onfocus="$('#upload').attr('disabled','disabled')"
+          placeholder="Paste Adapter Code..."></textarea>
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-col m2">
+        <label for="description">Description:</label>
+      </div>
+      <div class="w3-col m10">
+        <textarea id="description" name="description" rows="8" placeholder="Write something..."></textarea>
+      </div>
+    </div>
+    <div class="w3-row">
+      <span id="error"></span>
+      <button id="upload" disabled onclick="upload()"
+        class="w3-button w3-green w3-medium w3-round-medium w3-right">Upload</button>
+    </div>
+  </div>
+</body>
+
+</html>

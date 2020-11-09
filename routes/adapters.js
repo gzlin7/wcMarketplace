@@ -26,4 +26,26 @@ router.get('/:id?', (req, res) => {
   }
 });
 
+/**
+ * Upload adapter.
+ */
+router.post('/', (req, res) => {
+
+  const name = req.body.name;
+  const url = req.body.url;
+  const code = req.body.code;
+  const description = req.body.description;
+  if (Adapters.findOneByName(name) !== undefined) {
+    res.status(400).json({
+      error: `Adapter ${name} already exists.`,
+    }).end();
+  } else {
+    // generate uuid for id
+    const id = uuid.v4();
+    const adapter = Adapters.addOne(id, name, url, code, description);
+    // return the created user with HTTP Status Code 201 Created
+    res.status(201).json(adapter).end();
+  }
+});
+
 module.exports = router;
